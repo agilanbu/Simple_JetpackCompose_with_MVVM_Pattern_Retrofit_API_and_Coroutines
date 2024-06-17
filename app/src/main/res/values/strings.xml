@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">MapSted</string>
+    <string name="agilarasan_16jun2024">AgilArasan\n16Jun2024</string>
+    <string name="manufacture">Manufacture:</string>
+    <string name="category">Category:</string>
+    <string name="country">Country:</string>
+    <string name="state">State:</string>
+    <string name="number_of_purchases">Number Of Purchases:</string>
+    <string name="most_total_purchases">Most Total Purchases:</string>
+    <string name="item">Item:</string>
+    <string name="building">Building:</string>
+</resources>
