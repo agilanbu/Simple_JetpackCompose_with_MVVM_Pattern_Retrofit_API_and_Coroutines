@@ -20,7 +20,6 @@ class MainActivity : ComponentActivity() {
         repository = BuildingRepository(RetrofitInstance.api)
         viewModelFactory = BuildingViewModelFactory(repository)
         buildingViewModel = ViewModelProvider(this, viewModelFactory)[BuildingViewModel::class.java]
-
         setContent {
             BuildCompose(buildingViewModel = buildingViewModel)
         }

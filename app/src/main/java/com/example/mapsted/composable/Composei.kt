@@ -53,29 +53,19 @@ fun MyLayout(buildings: List<BuildingModel>, devices: List<DeviceModel>) {
         var expandedCountryList by remember { mutableStateOf(false) }
         var expandedStateList by remember { mutableStateOf(false) }
         var expandedItemList by remember { mutableStateOf(false) }
-        var countryList = ArrayList<BuildingModel>()
-        var stateList = ArrayList<BuildingModel>()
-        var buildingList = ArrayList<BuildingModel>()
-        var manufactureList = ArrayList<DeviceModel>()
-        var categoryList = ArrayList<PurchaseModel>()
-        var itemList = ArrayList<PurchaseModel>()
-        if (devices.isNotEmpty()) {
-            manufactureList = devices as ArrayList<DeviceModel>
-            categoryList =
-                devices[0].mUsageStatistics.mSessionInfos[0].mPurchases as ArrayList<PurchaseModel>
-            itemList =
-                devices[0].mUsageStatistics.mSessionInfos[0].mPurchases as ArrayList<PurchaseModel>
-        }
-        if (buildings.isNotEmpty()) {
-            buildingList = buildings as ArrayList<BuildingModel>
-            stateList = buildings
-            countryList = buildings
-        }
+
+        val manufactureList = devices as ArrayList<DeviceModel>
+        val categoryList =
+            devices[0].mUsageStatistics.mSessionInfo[0].mPurchases as ArrayList<PurchaseModel>
+        val itemList =
+            devices[0].mUsageStatistics.mSessionInfo[0].mPurchases as ArrayList<PurchaseModel>
+        val buildingList = buildings as ArrayList<BuildingModel>
+
         var selectedManufacture by remember { mutableStateOf(manufactureList[0]) }
         var selectedCategory by remember { mutableStateOf(categoryList[0]) }
         var selectedItem by remember { mutableStateOf(itemList[0]) }
-        var selectedCountry by remember { mutableStateOf(countryList[0]) }
-        var selectedState by remember { mutableStateOf(stateList[0]) }
+        var selectedCountry by remember { mutableStateOf(buildings[0]) }
+        var selectedState by remember { mutableStateOf(buildings[0]) }
         Text(
             text = stringResource(R.string.agilarasan_16jun2024),
             modifier = Modifier
@@ -240,7 +230,7 @@ fun MyLayout(buildings: List<BuildingModel>, devices: List<DeviceModel>) {
                     expanded = expandedCountryList,
                     onDismissRequest = { expandedCountryList = false }
                 ) {
-                    countryList.forEach { option ->
+                    buildings.forEach { option ->
                         DropdownMenuItem(
                             text = { Text(text = option.country ?: "") },
                             onClick = {
@@ -298,7 +288,7 @@ fun MyLayout(buildings: List<BuildingModel>, devices: List<DeviceModel>) {
                     expanded = expandedStateList,
                     onDismissRequest = { expandedStateList = false }
                 ) {
-                    stateList.forEach { option ->
+                    buildings.forEach { option ->
                         DropdownMenuItem(
                             text = { Text(text = option.state ?: "") },
                             onClick = {

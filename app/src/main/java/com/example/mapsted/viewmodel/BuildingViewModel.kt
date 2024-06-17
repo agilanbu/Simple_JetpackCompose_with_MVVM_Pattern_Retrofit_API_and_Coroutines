@@ -29,7 +29,7 @@ class BuildingViewModel(private val repository: BuildingRepository) : ViewModel(
             try {
                 coroutineScope {
                     val buildingsDeferred = async { repository.getBuildings() }
-                    val analyticsDeferred = async { repository.getAnaltic() }
+                    val analyticsDeferred = async { repository.getAnalytics() }
 
                     val buildingsResponse = buildingsDeferred.await()
                     val analyticsResponse = analyticsDeferred.await()

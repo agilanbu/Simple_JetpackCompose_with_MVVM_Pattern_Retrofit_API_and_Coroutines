@@ -4,6 +4,5 @@ import com.example.mapsted.retrofit.ApiService
 
 class BuildingRepository(private val api: ApiService) {
     suspend fun getBuildings() = api.getBuildingData()
-
-    suspend fun getAnaltic() = api.getGetAnalyticData()
+    suspend fun getAnalytics() = api.getGetAnalyticData()
 }

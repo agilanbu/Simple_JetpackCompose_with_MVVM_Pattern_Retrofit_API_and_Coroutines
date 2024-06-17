@@ -17,7 +17,7 @@ data class DeviceModel(
     val mUsageStatistics: UsageStatisticsModel
 ) {
     fun getBuildId(): Int {
-        return mUsageStatistics.mSessionInfos[0].mBuildingId
+        return mUsageStatistics.mSessionInfo[0].mBuildingId
     }
 }
 
@@ -65,12 +65,12 @@ data class SessionInfoModel(
 
 data class UsageStatisticsModel(
     @SerializedName("session_infos")
-    val mSessionInfos: List<SessionInfoModel>
+    val mSessionInfo: List<SessionInfoModel>
 ) {
     @SuppressLint("DefaultLocale")
     fun getTotalCost(): String {
         val currencySymbol = "$"
-        val cost = mSessionInfos.sumOf { it.getTotalPurchaseCost() }
+        val cost = mSessionInfo.sumOf { it.getTotalPurchaseCost() }
         return "$currencySymbol${String.format("%.2f", cost)}"
     }
 }
