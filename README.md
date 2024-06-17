@@ -1,0 +1,2 @@
+# Simple_JetpackCompose_with_MVVM_Pattern_Retrofit_API_and_Coroutines
+About This Project: - This sample application was developed using Jetpack Compose and Kotlin. It follows the MVVM and adheres to best practices. Architecture: - MVVM(Model ComposableView ViewModel) - Repository pattern  Built With: - Kotlin - Jetpack Compose - Coroutines - ViewModel - LiveData - Retrofit - Material Components for Android
